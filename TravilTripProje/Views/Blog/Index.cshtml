@@ -1,5 +1,4 @@
-﻿@using TravilTripProje.Models.Siniflar;
-@model List<Blog>
+﻿@model TravilTripProje.Models.Siniflar.BlogYorum
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_TestLayout.cshtml";
@@ -30,7 +29,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <div class="single">
         <div class="container">
             <div class="col-md-8 single-main">
-                @foreach (var item in Model)
+                @foreach (var item in Model.Deger1)
                 {
                     <div class="single-grid">
                         <img style="margin-bottom:1rem;" src="@item.BlogImage" alt="" />
@@ -47,10 +46,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <div class="recent">
                     <h3>Son Bloglar</h3>
                     <ul>
-                        <li><a href="#">Aliquam tincidunt mauris</a></li>
-                        <li><a href="#">Vestibulum auctor dapibus  lipsum</a></li>
-                        <li><a href="#">Nunc dignissim risus consecu</a></li>
-                        <li><a href="#">Cras ornare tristiqu</a></li>
+                        @foreach (var item in Model.Deger3)
+                        {
+                            <li><a href="/Blog/BlogDetay/@item.ID">@item.Baslik</a></li>
+                        }
                     </ul>
                 </div>
                 <div class="comments">

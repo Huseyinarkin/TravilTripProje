@@ -1,5 +1,4 @@
-﻿@using TravilTripProje.Models.Siniflar;
-@model List<Blog>
+﻿@model TravilTripProje.Models.Siniflar.BlogYorum
 @{
     ViewBag.Title = "BlogDetay";
     Layout = "~/Views/Shared/_TestLayout.cshtml";
@@ -47,39 +46,34 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <div class="single">
         <div class="container">
             <div class="col-md-8 single-main">
-                @foreach (var item in Model)
+                @foreach (var item in Model.Deger1)
                 {
                     <div class="single-grid">
                         <img src="@item.BlogImage" alt="" style="margin-bottom:1rem;" />
                         <h2>@item.Baslik</h2>
                         <p>
-                           @item.Aciklama 
+                            @item.Aciklama
                         </p>
                     </div>
+                    <br />
                 }
-                <ul class="comment-list">
-                    <li>
-                        <img src="~/web2/images/avatar.png" class="img-responsive" alt="">
-                        <div class="desc">
-                            <p>Mehmet Yücedağ: Yorum yazacak...</p>
-                        </div>
-                        <div class="clearfix"></div>
-                    </li>
-                </ul>
-                <ul class="comment-list">
-                    <li>
-                        <img src="~/web2/images/avatar.png" class="img-responsive" alt="">
-                        <div class="desc">
-                            <p>Mehmet Yücedağ: Yorum yazacak...</p>
-                        </div>
-                        <div class="clearfix"></div>
-                    </li>
-                </ul>
+                @foreach (var item in Model.Deger2)
+                {
+                    <ul class="comment-list">
+                        <li>
+                            <img src="~/web2/images/avatar.png" class="img-responsive" alt="">
+                            <div class="desc">
+                                <p>@item.KullaniciAdi : @item.Yorum</p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </li>
+                    </ul>
+                }
                 <div class="content-form">
                     <h3>Bir Yorum Yapın</h3>
                     <form>
                         <input type="text" placeholder="Kullanıcı Adı" required />
-                        <input type="text" placeholder="Mail Adresi" required />                        
+                        <input type="text" placeholder="Mail Adresi" required />
                         <textarea placeholder="Yorum"></textarea>
                         <input type="submit" value="Gönder" />
                     </form>
