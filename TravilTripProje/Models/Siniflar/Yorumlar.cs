@@ -14,5 +14,6 @@ namespace TravilTripProje.Models.Siniflar
         public string Mail { get; set; }
         public string Yorum { get; set; }
         public int BlogID { get; set; }
+        public Blog Blog { get; set; }
     }
 }
