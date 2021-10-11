@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using TravilTripProje.Models.Siniflar;
 
 namespace TravilTripProje.Controllers
-{    
+{
     public class BlogController : Controller
     {
         // GET: Blog
@@ -15,6 +15,11 @@ namespace TravilTripProje.Controllers
         {
             var bloglar = c.Blogs.ToList();
             return View(bloglar);
+        }
+        public ActionResult BlogDetay(int id)
+        {
+            var blogbul = c.Blogs.Where(x => x.ID == id).ToList();
+            return View(blogbul);
         }
     }
 }
