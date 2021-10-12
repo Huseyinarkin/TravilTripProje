@@ -26,5 +26,18 @@ namespace TravilTripProje.Controllers
             by.Deger2 = c.Yorumlars.Where(x => x.BlogID == id).ToList();
             return View(by);
         }
+        [HttpGet]
+        public PartialViewResult YorumYap(int id)
+        {
+            ViewBag.deger = id;
+            return PartialView();
+        }
+        [HttpPost]
+        public PartialViewResult YorumYap(Yorumlar b)
+        {
+            c.Yorumlars.Add(b);
+            c.SaveChanges();
+            return PartialView();
+        }
     }
 }
