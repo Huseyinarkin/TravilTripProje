@@ -40,6 +40,6 @@ namespace TravilTripProje.Controllers
         {
             var degerler = c.Blogs.Take(3).ToList();
             return PartialView(degerler);
-        }
+        }        
     }
 }
